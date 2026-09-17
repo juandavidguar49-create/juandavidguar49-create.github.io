@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ORDEX | Ordena. Enfócate. Crea.</title>
+
+    <meta name="description"
+        content="ORDEX — Diseño que organiza. Reutilización que transforma.">
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --azul: #164b73;
+            --azul-claro: #2d6f9f;
+            --negro: #080b0f;
+            --gris-oscuro: #20262d;
+            --gris: #69737d;
+            --gris-claro: #eef1f4;
+            --blanco: #ffffff;
+            --plata: #b8c0c8;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--blanco);
+            color: var(--negro);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           BARRA DE NAVEGACIÓN
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 11, 15, 0.95);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        /* Si todavía no tienes logo */
+
+        .logo-placeholder {
+            width: 150px;
+            height: 50px;
+
+            border: 1px dashed #66727c;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #9da8b0;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+
+        /* MENÚ */
+
+        .menu {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #dce3e8;
+            font-size: 0.88rem;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #6fa9d0;
+        }
+
+
+        /* =====================================================
+           HERO / PORTADA
+        ===================================================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,9,14,0.97),
+                    rgba(5,9,14,0.75),
+                    rgba(5,9,14,0.40)
+                ),
+                url("IMAGEN-HERO.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+
+            padding-top: 78px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+
+        /* LOGO GRANDE DE PORTADA */
+
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+        .hero-small {
+
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            color: #7db4d8;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+
+            font-size: clamp(4rem, 10vw, 8rem);
+
+            line-height: 0.9;
+
+            letter-spacing: 10px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+
+            font-size: 1.5rem;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+
+            color: #d1d9df;
+
+            max-width: 600px;
+
+            font-size: 1.05rem;
+        }
+
+
+        /* BOTONES */
+
+        .hero-buttons {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+
+            padding: 13px 27px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            display: inline-block;
+        }
+
+        .btn-primary {
+
+            background: var(--azul);
+
+            color: white;
+        }
+
+        .btn-primary:hover {
+
+            background: var(--azul-claro);
+
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+
+            border: 1px solid #ffffff66;
+
+            color: white;
+        }
+
+        .btn-outline:hover {
+
+            background: white;
+
+            color: var(--negro);
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 55px;
+        }
+
+        .section-number {
+
+            color: var(--azul);
+
+            font-size: 0.8rem;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+        }
+
+        .section-header h2 {
+
+            font-size: 2.8rem;
+
+            margin: 8px 0 15px;
+
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+
+            max-width: 700px;
+
+            color: var(--gris);
+        }
+
+
+        /* =====================================================
+           SOBRE ORDEX
+        ===================================================== */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-text p {
+
+            color: var(--gris);
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ESPACIO PARA IMAGEN */
+
+        .image-placeholder {
+
+            min-height: 420px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e5e9ed,
+                    #cbd2d8
+                );
+
+            border: 2px dashed #9ba5ad;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #5c6770;
+
+            text-align: center;
+
+            padding: 30px;
+
+            overflow: hidden;
+        }
+
+        .image-placeholder img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .image-placeholder strong {
+
+            display: block;
+
+            font-size: 1.2rem;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+           NUESTRA IDEA
+        ===================================================== */
+
+        .purpose {
+
+            background: var(--negro);
+
+            color: white;
+        }
+
+        .purpose-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .purpose-card {
+
+            padding: 35px;
+
+            border: 1px solid #ffffff17;
+
+            background: #ffffff05;
+
+            transition: 0.3s;
+        }
+
+        .purpose-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #3d79a3;
+        }
+
+        .purpose-card .icon {
+
+            font-size: 2rem;
+
+            margin-bottom: 20px;
+        }
+
+        .purpose-card h3 {
+
+            margin-bottom: 12px;
+        }
+
+        .purpose-card p {
+
+            color: #adb7bf;
+
+            font-size: 0.95rem;
+        }
+
+
+        /* =====================================================
+           PROBLEMA
+        ===================================================== */
+
+        .problem {
+
+            background: var(--gris-claro);
+        }
+
+        .problem-box {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .problem-text h3 {
+
+            font-size: 2rem;
+
+            margin-bottom: 20px;
+        }
+
+        .problem-text p {
+
+            color: var(--gris);
+
+            margin-bottom: 15px;
+        }
+
+        .problem-list {
+
+            margin-top: 25px;
+
+            list-style: none;
+        }
+
+        .problem-list li {
+
+            margin-bottom: 12px;
+
+            color: #3e474e;
+        }
+
+        .problem-list li::before {
+
+            content: "—";
+
+            color: var(--azul);
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+
+        /* =====================================================
+           PROPUESTA
+        ===================================================== */
+
+        .proposal {
+
+            background: white;
+        }
+
+        .proposal-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        .proposal-table th,
+        .proposal-table td {
+
+            padding: 25px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #dce1e5;
+        }
+
+        .proposal-table th {
+
+            background: var(--negro);
+
+            color: white;
+
+            font-size: 1rem;
+        }
+
+        .proposal-table td {
+
+            color: var(--gris);
+        }
+
+        .proposal-table td:first-child {
+
+            font-weight: 700;
+
+            color: var(--negro);
+        }
+
+
+        /* =====================================================
+           IDENTIDAD
+        ===================================================== */
+
+        .identity {
+
+            background: #f7f8f9;
+        }
+
+        .identity-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        /* ESPACIO PARA LOGO / LOBO */
+
+        .wolf-box {
+
+            min-height: 500px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #151b21,
+                    #2c3944
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: white;
+
+            border-radius: 3px;
+
+            overflow: hidden;
+
+            border: 1px solid #34414b;
+        }
+
+        .wolf-box img {
+
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: contain;
+        }
+
+        .wolf-box div {
+
+            text-align: center;
+        }
+
+        .wolf-symbol {
+
+            font-size: 6rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* VALORES */
+
+        .values {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+        .value {
+
+            padding: 9px 15px;
+
+            background: white;
+
+            border: 1px solid #dce1e5;
+
+            font-size: 0.85rem;
+
+            font-weight: 600;
+        }
+
+
+        /* COLORES */
+
+        .colors {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+        .color {
+
+            text-align: center;
+
+            font-size: 0.75rem;
+
+            color: var(--gris);
+        }
+
+        .color-circle {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            margin-bottom: 7px;
+
+            border: 1px solid #ccc;
+        }
+
+        .blue {
+            background: #164b73;
+        }
+
+        .black {
+            background: #0b0f14;
+        }
+
+        .silver {
+            background: #b8c0c8;
+        }
+
+
+        /* =====================================================
+           MISIÓN Y VISIÓN
+        ===================================================== */
+
+        .mission {
+
+            background: var(--negro);
+
+            color: white;
+        }
+
+        .mission-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .mission-card {
+
+            padding: 45px;
+
+            border: 1px solid #ffffff1c;
+        }
+
+        .mission-card h3 {
+
+            color: #6fa9d0;
+
+            margin-bottom: 15px;
+
+            letter-spacing: 2px;
+        }
+
+        .mission-card p {
+
+            color: #b8c0c7;
+        }
+
+
+        /* =====================================================
+           OBJETIVOS
+        ===================================================== */
+
+        .objectives {
+
+            background: white;
+        }
+
+        .general-objective {
+
+            padding: 35px;
+
+            background: var(--gris-claro);
+
+            border-left: 5px solid var(--azul);
+
+            margin-bottom: 40px;
+        }
+
+        .general-objective h3 {
+
+            margin-bottom: 10px;
+        }
+
+        .objective-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .objective {
+
+            padding: 25px;
+
+            border: 1px solid #e0e4e7;
+
+            transition: 0.3s;
+        }
+
+        .objective:hover {
+
+            border-color: var(--azul);
+
+            transform: translateY(-4px);
+        }
+
+        .objective-number {
+
+            color: var(--azul);
+
+            font-weight: 800;
+
+            font-size: 1.3rem;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+           EQUIPO
+        ===================================================== */
+
+        .team {
+
+            background: var(--gris-claro);
+        }
+
+        .team-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .team-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border: 1px solid #e1e5e8;
+
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+
+        /* FOTO DEL EQUIPO */
+
+        .team-photo {
+
+            height: 230px;
+
+            margin-bottom: 22px;
+
+            background: #d9dee2;
+
+            border: 2px dashed #9da7ae;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: #626d75;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .team-photo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+
+            font-size: 1rem;
+
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+
+            color: var(--azul);
+
+            font-size: 0.8rem;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+        .team-card p {
+
+            color: var(--gris);
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =====================================================
+           PLANOS
+        ===================================================== */
+
+        .plans {
+
+            background: white;
+        }
+
+        .plans-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 40px;
+        }
+
+        .plan-image {
+
+            min-height: 500px;
+
+            background: #edf0f2;
+
+            border: 2px dashed #9fa8af;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            color: var(--gris);
+
+            overflow: hidden;
+        }
+
+        .plan-image img {
+
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: contain;
+        }
+
+        .quote {
+
+            border-left: 4px solid var(--azul);
+
+            padding-left: 25px;
+
+            margin-top: 30px;
+
+            font-size: 1.3rem;
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           PROCESO
+        ===================================================== */
+
+        .process {
+
+            background: var(--negro);
+
+            color: white;
+        }
+
+        .process-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 15px;
+        }
+
+        .process-step {
+
+            padding: 30px 20px;
+
+            border: 1px solid #ffffff17;
+
+            transition: 0.3s;
+        }
+
+        .process-step:hover {
+
+            border-color: #467ea5;
+
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+
+            font-size: 2rem;
+
+            color: #5d9cca;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .process-step h3 {
+
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+
+            color: #aeb8c0;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =====================================================
+           EVIDENCIAS
+        ===================================================== */
+
+        .evidence {
+
+            background: white;
+        }
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+
+            height: 280px;
+
+            background: #e8ecef;
+
+            border: 2px dashed #9da7ae;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            color: var(--gris);
+
+            transition: 0.3s;
+
+            overflow: hidden;
+        }
+
+        .gallery-item:hover {
+
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* =====================================================
+           PROYECCIÓN
+        ===================================================== */
+
+        .projection {
+
+            background: var(--gris-claro);
+        }
+
+        .projection-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            margin-bottom: 35px;
+        }
+
+        .percentage-card {
+
+            background: white;
+
+            padding: 45px;
+
+            text-align: center;
+
+            border: 1px solid #dfe4e7;
+        }
+
+        .percentage {
+
+            font-size: 4rem;
+
+            font-weight: 800;
+
+            color: var(--azul);
+        }
+
+        .percentage-card h3 {
+
+            margin-bottom: 10px;
+        }
+
+        .percentage-card p {
+
+            color: var(--gris);
+
+            font-size: 0.9rem;
+        }
+
+        .projection-note {
+
+            color: var(--gris);
+
+            max-width: 850px;
+        }
+
+
+        /* =====================================================
+           CIERRE
+        ===================================================== */
+
+        .final {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,9,14,0.95),
+                    rgba(5,9,14,0.65)
+                ),
+                url("IMAGEN-FINAL.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 130px 20px;
+        }
+
+        .final h2 {
+
+            font-size: clamp(3rem, 7vw, 6rem);
+
+            letter-spacing: 8px;
+        }
+
+        .final h3 {
+
+            color: #72a9cf;
+
+            letter-spacing: 4px;
+
+            margin: 10px 0 25px;
+        }
+
+        .final p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #c8d0d6;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #070a0d;
+
+            color: #9ca7ae;
+
+            padding: 50px 0 25px;
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+
+            color: white;
+
+            margin-bottom: 12px;
+        }
+
+        footer p {
+
+            font-size: 0.85rem;
+        }
+
+        .copyright {
+
+            border-top: 1px solid #ffffff12;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .menu {
+                display: none;
+            }
+
+            .about-grid,
+            .problem-box,
+            .identity-grid,
+            .mission-grid,
+            .plans-grid,
+            .projection-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .purpose-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .objective-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .team-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+
+                letter-spacing: 5px;
+            }
+
+            .hero-logo {
+
+                width: 150px;
+
+                height: 80px;
+            }
+
+            .objective-grid,
+            .team-grid,
+            .process-grid,
+            .gallery {
+
+                grid-template-columns: 1fr;
+            }
+
+            .proposal-table {
+
+                font-size: 0.85rem;
+            }
+
+            .proposal-table th,
+            .proposal-table td {
+
+                padding: 15px;
+            }
+
+            .logo img {
+
+                max-width: 130px;
+
+                height: 45px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
+
+<header>
+
+    <div class="container">
+
+        <nav>
+
+
+            <!-- =================================================
+                 LOGO PRINCIPAL
+
+                 Pon tu archivo aquí:
+                 logo-ordex.png
+            ================================================== -->
+
+            <a href="#inicio" class="logo">
+
+                <img
+                    src="P1.jpeg"
+                    alt="Logo oficial de ORDEX"
+                >
+
+            </a>
+
+
+            <!-- MENÚ -->
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#sobre">
+                        Sobre ORDEX
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#propuesta">
+                        Propuesta
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#identidad">
+                        Identidad
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#equipo">
+                        Equipo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#proceso">
+                        Proceso
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evidencias">
+                        Evidencias
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <!-- =================================================
+                 ESPACIO PARA LOGO GRANDE
+
+                 Puedes poner aquí nuevamente
+                 logo-ordex.png
+            ================================================== -->
+
+            
+        
+
+
+            <div class="hero-small">
+
+                Diseño · Organización · Reutilización
+
+            </div>
+
+
+            <h1>
+                ORDEX
+            </h1>
+
+
+            <h2>
+
+                ORDENA. ENFÓCATE. CREA.
+
+            </h2>
+
+
+            <p>
+
+                Diseño que organiza.
+                Reutilización que transforma.
+
+                Una propuesta funcional que convierte
+                materiales sencillos en soluciones para
+                los espacios cotidianos.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#sobre"
+                    class="btn btn-primary"
+                >
+                    Conocer ORDEX
+                </a>
+
+
+                <a
+                    href="#proceso"
+                    class="btn btn-outline"
+                >
+                    Ver proceso
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOBRE ORDEX
+===================================================== -->
+
+<section class="about" id="sobre">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                01 / IDENTIDAD
+
+            </div>
+
+
+            <h2>
+
+                Una idea que nace del orden
+
+            </h2>
+
+
+            <p>
+
+                Transformamos una necesidad cotidiana
+                en una solución práctica, funcional
+                y accesible.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <p>
+
+                    ORDEX es un emprendimiento que busca
+                    transformar una necesidad cotidiana
+                    en una solución práctica.
+
+                    Creamos organizadores para espacios
+                    de estudio y trabajo, aprovechando
+                    principalmente cartón reciclado.
+
+                </p>
+
+
+                <p>
+
+                    Nuestra propuesta combina funcionalidad,
+                    diseño y aprovechamiento de materiales,
+                    demostrando que algo que podría convertirse
+                    en residuo puede adquirir una nueva utilidad.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMAGEN DEL PRODUCTO
+
+                 Archivo sugerido:
+                 producto.jpg
+            ================================================== -->
+
+            <div class="image-placeholder">
+
+                <img
+                    src="Producto.jpeg"
+                    alt="Organizador ORDEX"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NUESTRA IDEA
+===================================================== -->
+
+<section class="purpose">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                02 / NUESTRA IDEA
+
+            </div>
+
+
+            <h2>
+
+                Organizar para crear
+
+            </h2>
+
+
+            <p style="color:#aeb8c0;">
+
+                Productos pensados para quienes necesitan
+                aprovechar mejor sus espacios.
+
+            </p>
+
+        </div>
+
+
+        <div class="purpose-grid">
+
+
+            <div class="purpose-card">
+
+                <div class="icon">
+                    ▣
+                </div>
+
+                <h3>
+                    Organización
+                </h3>
+
+                <p>
+
+                    Ayudamos a mantener lápices, útiles,
+                    cables y objetos cotidianos en un mismo lugar.
+
+                </p>
+
+            </div>
+
+
+            <div class="purpose-card">
+
+                <div class="icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Funcionalidad
+                </h3>
+
+                <p>
+
+                    Diseñamos soluciones prácticas para
+                    estudiantes, trabajadores y personas creativas.
+
+                </p>
+
+            </div>
+
+
+            <div class="purpose-card">
+
+                <div class="icon">
+                    ♻
+                </div>
+
+                <h3>
+                    Reutilización
+                </h3>
+
+                <p>
+
+                    Damos una segunda oportunidad a materiales
+                    reutilizables como el cartón.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EL PROBLEMA
+===================================================== -->
+
+<section class="problem">
+
+    <div class="container">
+
+
+        <div class="problem-box">
+
+
+            <div class="problem-text">
+
+                <div class="section-number">
+
+                    03 / EL PROBLEMA
+
+                </div>
+
+
+                <h3>
+
+                    Cuando el desorden ocupa espacio
+
+                </h3>
+
+
+                <p>
+
+                    Los escritorios pueden convertirse
+                    fácilmente en espacios desordenados
+                    cuando lápices, útiles, cables y otros
+                    objetos se encuentran dispersos.
+
+                </p>
+
+
+                <p>
+
+                    Esto dificulta encontrar lo que necesitamos
+                    y reduce el espacio disponible.
+
+                </p>
+
+
+                <ul class="problem-list">
+
+                    <li>
+                        Objetos dispersos.
+                    </li>
+
+                    <li>
+                        Poco espacio disponible.
+                    </li>
+
+                    <li>
+                        Dificultad para encontrar elementos.
+                    </li>
+
+                    <li>
+                        Falta de una solución práctica.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMAGEN DEL PROBLEMA
+
+                 Archivo sugerido:
+                 problema.jpg
+            ================================================== -->
+
+            <div class="image-placeholder">
+
+                <img
+                    src="Desorden.avif"
+                    alt="Escritorio desordenado"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROPUESTA
+===================================================== -->
+
+<section class="proposal" id="propuesta">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                04 / NUESTRA PROPUESTA
+
+            </div>
+
+
+            <h2>
+
+                ¿Qué hacemos diferente?
+
+            </h2>
+
+        </div>
+
+
+        <table class="proposal-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Organización
+                    </th>
+
+                    <th>
+                        Diseño
+                    </th>
+
+                    <th>
+                        Reutilización
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        Aprovechamos mejor
+                        el espacio.
+
+                    </td>
+
+
+                    <td>
+
+                        Creamos una propuesta
+                        visual y funcional.
+
+                    </td>
+
+
+                    <td>
+
+                        Utilizamos principalmente
+                        cartón reciclado.
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IDENTIDAD
+===================================================== -->
+
+<section class="identity" id="identidad">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                05 / IDENTIDAD
+
+            </div>
+
+
+            <h2>
+
+                El carácter de ORDEX
+
+            </h2>
+
+        </div>
+
+
+        <div class="identity-grid">
+
+
+            <!-- =================================================
+                 LOGO / LOBO
+
+                 Puedes colocar aquí una imagen del lobo
+                 o del logo.
+
+                 Archivo sugerido:
+                 logo-lobo.png
+            ================================================== -->
+
+            <div class="wolf-box">
+
+                <img
+                    src="Lobo.jpeg"
+                    alt="Símbolo del lobo ORDEX"
+                >
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+                    El lobo
+                </h3>
+
+
+                <p style="color:#69737d; margin-top:15px;">
+
+                    El lobo es el símbolo principal de ORDEX.
+                    Representa valores que queremos transmitir
+                    como emprendimiento.
+
+                </p>
+
+
+                <div class="values">
+
+                    <span class="value">
+                        Fuerza
+                    </span>
+
+                    <span class="value">
+                        Inteligencia
+                    </span>
+
+                    <span class="value">
+                        Liderazgo
+                    </span>
+
+                    <span class="value">
+                        Adaptabilidad
+                    </span>
+
+                </div>
+
+
+                <h3 style="margin-top:40px;">
+
+                    Colores
+
+                </h3>
+
+
+                <div class="colors">
+
+
+                    <div class="color">
+
+                        <div class="color-circle blue"></div>
+
+                        Azul
+
+                    </div>
+
+
+                    <div class="color">
+
+                        <div class="color-circle black"></div>
+
+                        Negro
+
+                    </div>
+
+
+                    <div class="color">
+
+                        <div class="color-circle silver"></div>
+
+                        Gris / Plata
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MISIÓN Y VISIÓN
+===================================================== -->
+
+<section class="mission">
+
+    <div class="container">
+
+
+        <div class="mission-grid">
+
+
+            <div class="mission-card">
+
+                <h3>
+                    MISIÓN
+                </h3>
+
+                <p>
+
+                    Crear organizadores prácticos,
+                    funcionales y accesibles que ayuden
+                    a mantener los espacios ordenados,
+                    utilizando principalmente cartón
+                    reciclado y promoviendo el aprovechamiento
+                    de materiales reutilizables.
+
+                </p>
+
+            </div>
+
+
+            <div class="mission-card">
+
+                <h3>
+                    VISIÓN
+                </h3>
+
+                <p>
+
+                    Desarrollar progresivamente una marca
+                    reconocida por sus productos funcionales,
+                    su diseño y su compromiso con el
+                    aprovechamiento responsable de materiales.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OBJETIVOS
+===================================================== -->
+
+<section class="objectives">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                06 / OBJETIVOS
+
+            </div>
+
+
+            <h2>
+
+                Hacia dónde vamos
+
+            </h2>
+
+        </div>
+
+
+        <div class="general-objective">
+
+            <h3>
+                Objetivo general
+            </h3>
+
+            <p>
+
+                Desarrollar y comercializar organizadores
+                elaborados principalmente con cartón reciclado,
+                que sean prácticos, resistentes y accesibles.
+
+            </p>
+
+        </div>
+
+
+        <div class="objective-grid">
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    01
+                </div>
+
+                Diseñar productos que respondan
+                a necesidades reales.
+
+            </div>
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    02
+                </div>
+
+                Utilizar materiales reutilizables
+                como parte del proceso.
+
+            </div>
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    03
+                </div>
+
+                Crear diseños funcionales
+                y atractivos.
+
+            </div>
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    04
+                </div>
+
+                Mantener precios accesibles.
+
+            </div>
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    05
+                </div>
+
+                Escuchar las opiniones y preferencias
+                de nuestros clientes.
+
+            </div>
+
+
+            <div class="objective">
+
+                <div class="objective-number">
+                    06
+                </div>
+
+                Promover el aprovechamiento
+                de materiales reciclables.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EQUIPO
+===================================================== -->
+
+<section class="team" id="equipo">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                07 / NUESTRO EQUIPO
+
+            </div>
+
+
+            <h2>
+
+                Personas detrás de ORDEX
+
+            </h2>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+            <!-- JUAN -->
+
+            <div class="team-card">
+
+                <div class="team-photo">
+
+                    <img
+                        src="juan.jpg"
+                        alt="Juan David Agudelo Aparicio"
+                    >
+
+                </div>
+
+
+                <h3>
+                    Juan David Agudelo Aparicio
+                </h3>
+
+
+                <div class="team-role">
+
+                    Coordinación y administración
+
+                </div>
+
+
+                <p>
+
+                    Organización de actividades,
+                    distribución de tareas y seguimiento
+                    de objetivos.
+
+                </p>
+
+            </div>
+
+
+            <!-- EILEEN -->
+
+            <div class="team-card">
+
+                <div class="team-photo">
+
+                    <img
+                        src="eileen.jpg"
+                        alt="Eileen Sayari Quintero Vargas"
+                    >
+
+                </div>
+
+
+                <h3>
+
+                    Eileen Sayari Quintero Vargas
+
+                </h3>
+
+
+                <div class="team-role">
+
+                    Diseño y producción
+
+                </div>
+
+
+                <p>
+
+                    Diseño de los productos, elaboración
+                    de prototipos y control de calidad.
+
+                </p>
+
+            </div>
+
+
+            <!-- SNEIDER -->
+
+            <div class="team-card">
+
+                <div class="team-photo">
+
+                    <img
+                        src="sneider.jpg"
+                        alt="Sneider Serrano Genes"
+                    >
+
+                </div>
+
+
+                <h3>
+
+                    Sneider Serrano Genes
+
+                </h3>
+
+
+                <div class="team-role">
+
+                    Marketing y publicidad
+
+                </div>
+
+
+                <p>
+
+                    Promoción de ORDEX, creación de contenido
+                    y análisis de las preferencias de los clientes.
+
+                </p>
+
+            </div>
+
+
+            <!-- SAMUEL -->
+
+            <div class="team-card">
+
+                <div class="team-photo">
+
+                    <img
+                        src="samuel.jpg"
+                        alt="Samuel Thomas Tofanci Ruiz"
+                    >
+
+                </div>
+
+
+                <h3>
+
+                    Samuel Thomas Tofanci Ruiz
+
+                </h3>
+
+
+                <div class="team-role">
+
+                    Ventas y finanzas
+
+                </div>
+
+
+                <p>
+
+                    Atención al cliente, ventas, registro
+                    de ingresos y gastos y manejo de recursos.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PLANOS
+===================================================== -->
+
+<section class="plans">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                08 / DISEÑO
+
+            </div>
+
+
+            <h2>
+
+                De una idea a un diseño
+
+            </h2>
+
+
+            <p>
+
+                Los planos representan la etapa en la que
+                nuestra idea se convierte en un producto concreto.
+
+            </p>
+
+        </div>
+
+
+        <div class="plans-grid">
+
+
+            <!-- =================================================
+                 IMAGEN DEL PLANO
+
+                 Archivo sugerido:
+                 plano.jpg
+            ================================================== -->
+
+            <div class="plan-image">
+
+                <img
+                    src="Planos.png"
+                    alt="Planos del organizador ORDEX"
+                >
+
+            </div>
+
+
+            <div>
+
+                <p style="color:#69737d;">
+
+                    En ellos se establecen las medidas,
+                    piezas, distribución y características
+                    del diseño, funcionando como guía
+                    para su elaboración.
+
+                </p>
+
+
+                <div class="quote">
+
+                    “De una idea a un diseño.
+                    Del diseño a una solución.”
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESO
+===================================================== -->
+
+<section class="process" id="proceso">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                09 / PROCESO
+
+            </div>
+
+
+            <h2>
+
+                Cómo construimos ORDEX
+
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    IDEA
+                </h3>
+
+                <p>
+                    Identificamos una necesidad
+                    de organización.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    DISEÑO
+                </h3>
+
+                <p>
+                    Definimos la forma, distribución
+                    y medidas.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    MATERIAL
+                </h3>
+
+                <p>
+                    Seleccionamos principalmente
+                    cartón reciclado.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    CONSTRUCCIÓN
+                </h3>
+
+                <p>
+                    Unimos y elaboramos las
+                    diferentes piezas.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="step-number">
+                    05
+                </div>
+
+                <h3>
+                    RESULTADO
+                </h3>
+
+                <p>
+                    Obtenemos un producto funcional
+                    y listo para ser presentado.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVIDENCIAS
+===================================================== -->
+
+<section class="evidence" id="evidencias">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                10 / EVIDENCIAS
+
+            </div>
+
+
+            <h2>
+
+                Del proceso al resultado
+
+            </h2>
+
+
+            <p>
+
+                Mostramos el desarrollo de ORDEX:
+                diseños, planos, elaboración, avances
+                y resultado final.
+
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 0.jpeg"
+                    alt="Bocetos ORDEX"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 1.jpeg"
+                    alt="Planos ORDEX"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 2.jpeg"
+                    alt="Materiales ORDEX"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 3.jpeg"
+                    alt="Construcción ORDEX"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 5.jpeg"
+                    alt="Avances ORDEX"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Evidencia 6.jpeg"
+                    alt="Producto final ORDEX"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROYECCIÓN
+===================================================== -->
+
+<section class="projection">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-number">
+
+                11 / PROYECCIÓN
+
+            </div>
+
+
+            <h2>
+
+                Una primera estimación
+
+            </h2>
+
+
+            <p>
+
+                Evaluación académica inicial del proyecto.
+
+            </p>
+
+        </div>
+
+
+        <div class="projection-grid">
+
+
+            <div class="percentage-card">
+
+                <div class="percentage">
+
+                    75%
+
+                </div>
+
+
+                <h3>
+
+                    Probabilidad estimada de éxito
+
+                </h3>
+
+
+                <p>
+
+                    Estimación académica basada en factores
+                    relacionados con el proyecto.
+
+                </p>
+
+            </div>
+
+
+            <div class="percentage-card">
+
+                <div class="percentage">
+
+                    25%
+
+                </div>
+
+
+                <h3>
+
+                    Probabilidad estimada de fracaso
+
+                </h3>
+
+
+                <p>
+
+                    Aproximación utilizada para la evaluación
+                    inicial del emprendimiento.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="projection-note">
+
+            Estas cifras representan una aproximación para
+            el proyecto y consideran factores como la necesidad
+            del producto, los costos, la aceptación de los
+            clientes y la competencia.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CIERRE
+===================================================== -->
+
+<section class="final">
+
+    <div class="container">
+
+
+        <h2>
+            ORDEX
+        </h2>
+
+
+        <h3>
+            ORDENA. ENFÓCATE. CREA.
+        </h3>
+
+
+        <p>
+
+            Una idea sencilla puede convertirse en una
+            solución cuando se combina organización,
+            creatividad y propósito.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    ORDEX
+                </h3>
+
+                <p>
+
+                    Diseño que organiza.
+                    Reutilización que transforma.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Institución
+                </h3>
+
+                <p>
+
+                    Colegio Alameda Norte IED
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Redes Sociales
+                </h3>
+
+                <p>
+
+                    Instagram: @ordexworks 
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 ORDEX — Todos los derechos reservados.
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
